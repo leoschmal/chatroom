@@ -3,12 +3,13 @@ const socket = io.connect();
 function render(data) {
     const html1 = data.map((elem, index) => {
         return(`<div>
-        <strong>${elem.date}</strong>
-            <strong>${elem.author}</strong>:
+            <em style="color: green">${elem.date}</em>
+            <strong style="color: blue">${elem.author}:</strong>
             <em>${elem.text}</em> </div>`)
     }).join(" ");
     document.getElementById('parrafoMensajes').innerHTML = html1;
 }
+
 function renderLista(data) {
     const html = data.map((elem, index) => {
         return(`   <tr>
@@ -20,6 +21,7 @@ function renderLista(data) {
     }).join(" ");
     document.getElementById('lista').innerHTML = html;
 }
+
 function addMessage() {
     const mensaje = {
     author: document.getElementById('username').value,

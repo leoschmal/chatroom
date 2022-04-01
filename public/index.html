@@ -14,10 +14,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
     <h3>App Desafío</h3>
     <!--Aca meto la plantilla-->
-    <h6 class="text-center m-0">Ingrese Productos</h6>        
-          <div class="container mt-3 bg-secondary">
-              <div class="jumbotron">      
-                <br />
+           
+          <div class="container mt-0 bg-secondary">
+            <h5 class="text-center mt-3">Ingrese Productos</h5> 
+                   
                 <form onsubmit= "return addProduct(this)">
                   <div class="form-group">
                     <label for="title"><b>Titulo</b></label>
@@ -36,35 +36,36 @@
                     <label for="url"><b>Url</b></label>
                     <input id="url" class="form-control" type="text" name="url" />
                   </div>
-                  <input class="btn btn-success mt-3 mb-5" type="submit" value="Agregar">
-                </form>         
-              </div>
-            </div>
-                        <h6 class="text-center">Listado Productos</h6>                              
-                                <div class="table-responsive container">
-                                    <table class="table table-dark">
-                                      <thead>
-                                        <tr style="color: yellow;"> 
-                                          <th>Producto</th> 
-                                          <th>Precio</th> 
-                                          <th>Imagen</th> 
-                                        </tr>  
-                                      </thead>
-                                      <tbody id="lista">                                   
-                                         
-                                      </tbody>                                       
-                                    </table>
-                                </div>                            
-                            <div id="messages"></div> 
-    <div class="container bg-secondary">
-      <h3 class="text-center">CENTRO DE MENSAJES</h3>
+                  <div class="text-center">
+                  <input class="btn btn-success mt-3 mb-3" type="submit" value="Agregar">
+                </div>
+                </form>            
+                <h5 class="text-center">Listado Productos</h5>                              
+                <div class="table-responsive container">
+                    <table class="table table-dark">
+                      <thead>
+                        <tr style="color: yellow;"> 
+                          <th>Producto</th> 
+                          <th>Precio</th> 
+                          <th>Imagen</th> 
+                        </tr>  
+                      </thead>
+                      <tbody id="lista">                                   
+                          
+                      </tbody>                                       
+                    </table>
+                </div>  
+                </div>           
 
+    <div id="messages"></div> 
+    <div class="container bg-primary">
+      <h3 class="text-center">CENTRO DE MENSAJES</h3>
         <div id="parrafoMensajes" class="mb-5"></div>
-        <div class="fixed-bottom bg-light">
+        <div class="fixed-bottom bg-success text-center container mt-5 pt-2 pb-2">
         <form onsubmit= "return addMessage(this)">
           <input type="text" id="username" placeholder="Tu Nombre" >
           <input type="text" id="texto" placeholder="Cuéntanos algo...">
-          <input type="submit" value="Enviar">                                
+          <input type="submit" class="btn btn-info" value="Enviar">                                
         </form> 
       </div>
     </div>

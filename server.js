@@ -14,8 +14,7 @@ app.use(express.json())
 app.use(express.static('./public'));
 
 const mensajes = [];
-const productos = [{"id":"7", "title":"Bicic","price":"$49.346.-", "url":"https://cdn2.iconfinder.com/data/icons/miscellaneous-iii-glyph-style/150/cycling-256.png"},{"id":"8", "title":"Monopatín","price":"$23.562.-", "url":"https://cdn1.iconfinder.com/data/icons/sport-fitness-vol-3-1/512/skate_rollers_rolling_street-256.png"},{"id":"9", "title":"Skate","price":"$12.365.-","url":"https://cdn0.iconfinder.com/data/icons/sport-and-fitness-1/32/Sports_and_Fitness_skate_freestyle_skating_skateboard-256.png"}]
-
+const productos = [{"id":"7", "title":"Bicicleta","price":"$49.346.-", "url":"https://cdn2.iconfinder.com/data/icons/miscellaneous-iii-glyph-style/150/cycling-256.png"},{"id":"8", "title":"Monopatín","price":"$23.562.-", "url":"https://cdn1.iconfinder.com/data/icons/sport-fitness-vol-3-1/512/skate_rollers_rolling_street-256.png"},{"id":"9", "title":"Skate","price":"$12.365.-","url":"https://cdn0.iconfinder.com/data/icons/sport-and-fitness-1/32/Sports_and_Fitness_skate_freestyle_skating_skateboard-256.png"}]
 
 app.get('/', (req, res) => {
     res.sendFile('/public/index.html', {root: __dirname});})
@@ -28,16 +27,14 @@ io.on('connection', (socket) => {
     socket.emit('historial', mensajes);
     socket.emit('historialProductos', productos);    
 
-    socket.on('notificacion', (data) => {
-        console.log(data);        
-    })  
+      
     socket.on('new-message', (data)=>{
         //recibo el new message del cliente
         mensajes.push(data);
         console.log(data);
         // se lo mando a todos los clientes
         io.sockets.emit('messages', mensajes);
-    })
+        })
 
     socket.on('new-product', (data)=>{
         //recibo el new product del cliente
@@ -45,7 +42,7 @@ io.on('connection', (socket) => {
         console.log(data);
         // se lo mando a todos los clientes
         io.sockets.emit('productos', productos);
-    })
+        })
     })
 
   
